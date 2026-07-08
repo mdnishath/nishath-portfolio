@@ -1,0 +1,26 @@
+.card {
+  border-radius: 10px;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.icon {
+  color: var(--gold);
+  display: block;
+  height: 26px;
+}
+
+.title {
+  font-size: 26px;
+  margin: 0;
+  color: var(--ink);
+}
+
+.desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}

@@ -1,0 +1,189 @@
+/* shared styles for Services / Work / Contact page headers & sections */
+
+.pageHeader {
+  padding: clamp(150px, 18vh, 200px) var(--pad-x) clamp(56px, 7vw, 88px);
+  position: relative;
+}
+
+.headerGlow {
+  position: absolute;
+  top: 0;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(201, 162, 78, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.pageTitle {
+  font-size: clamp(42px, 6vw, 80px);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--ink);
+}
+
+.pageLede {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0;
+}
+
+.gridSection {
+  padding: 0 var(--pad-x) clamp(72px, 9vw, 120px);
+}
+
+.band {
+  padding: clamp(72px, 9vw, 120px) var(--pad-x);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(20, 18, 16, 0.6) 15%,
+    rgba(20, 18, 16, 0.6) 85%,
+    transparent
+  );
+}
+
+.ctaSection {
+  padding: clamp(72px, 9vw, 110px) var(--pad-x);
+  text-align: center;
+}
+
+.ctaBand {
+  padding: clamp(72px, 9vw, 110px) var(--pad-x);
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(20, 18, 16, 0.6) 20%,
+    rgba(20, 18, 16, 0.6) 80%,
+    transparent
+  );
+}
+
+.ctaInner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(32px, 4.5vw, 54px);
+  line-height: 1.1;
+  margin: 0 0 32px;
+  color: var(--ink);
+}
+
+/* ===== process (services page) ===== */
+
+.processHead {
+  margin-bottom: clamp(48px, 6vw, 72px);
+  max-width: 720px;
+}
+
+.processTitle {
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.12;
+  margin: 0 0 20px;
+  color: var(--ink);
+}
+
+.processLede {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.processStep {
+  position: relative;
+  padding: 32px 0 0;
+}
+
+.processRail {
+  position: absolute;
+  top: 22px;
+  left: 52px;
+  right: 0;
+  height: 1px;
+  background: rgba(201, 162, 78, 0.2);
+}
+
+.processNum {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif), serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  background: var(--bg);
+}
+
+.processBody {
+  padding-top: 36px;
+}
+
+.processStepTitle {
+  font-size: 26px;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+
+.processStepDesc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ===== work page header row ===== */
+
+.workHeaderRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.workTitleWrap {
+  position: relative;
+  display: inline-block;
+}
+
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 24px;
+}
+
+.githubLink {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(201, 162, 78, 0.4);
+  padding-bottom: 4px;
+  transition: all 0.25s;
+}
+
+.githubLink:hover {
+  color: var(--gold-br);
+  border-bottom-color: var(--gold-br);
+}

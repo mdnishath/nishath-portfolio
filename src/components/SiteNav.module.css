@@ -1,0 +1,213 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(10, 9, 8, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 162, 78, 0.18);
+}
+
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--ink);
+}
+
+.brand:hover {
+  color: var(--ink);
+}
+
+.brandMark {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 23px;
+  color: var(--gold-lt);
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brandName {
+  font-family: var(--font-serif), serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 5px;
+  color: var(--ink);
+}
+
+.brandRole {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold-lt);
+  font-weight: 600;
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* ===== desktop nav ===== */
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-family: var(--font-sans), sans-serif;
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding-bottom: 3px;
+  transition: all 0.25s;
+  color: var(--nav-link);
+  border-bottom: 1px solid transparent;
+}
+
+.navLink:hover {
+  color: var(--ink);
+  border-bottom: 1px solid var(--gold);
+}
+
+.navLinkActive {
+  color: var(--gold-br);
+  border-bottom: 1px solid var(--gold);
+}
+
+.ctaPill {
+  background: var(--gold-grad);
+  color: var(--bg);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: all 0.25s;
+}
+
+.ctaPill:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 8px 24px rgba(201, 162, 78, 0.35);
+  color: var(--bg);
+}
+
+/* ===== mobile bottom nav ===== */
+
+.mobileNav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: none;
+  background: rgba(10, 9, 8, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(201, 162, 78, 0.25);
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+}
+
+.mobileNavInner {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mobileItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  color: var(--nav-link);
+  transition: color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobileIcon {
+  width: 38px;
+  height: 38px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobileLabel {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.25s;
+}
+
+.mobileItem:hover,
+.mobileItem:focus-visible {
+  color: var(--gold-br);
+}
+
+.mobileItem:hover .mobileIcon,
+.mobileItem:focus-visible .mobileIcon {
+  transform: translateY(-6px) scale(1.08);
+  border-color: rgba(201, 162, 78, 0.55);
+  box-shadow: 0 0 20px rgba(201, 162, 78, 0.25);
+  color: var(--gold-br);
+}
+
+.mobileItem:active .mobileIcon {
+  transform: translateY(-2px) scale(0.96);
+}
+
+.mobileItemActive {
+  color: var(--gold-br);
+}
+
+.mobileItemActive .mobileIcon {
+  border-color: var(--gold);
+  background: rgba(201, 162, 78, 0.1);
+  color: var(--gold-br);
+  box-shadow: 0 0 18px rgba(201, 162, 78, 0.2);
+}
+
+/* ===== breakpoints ===== */
+
+@media (max-width: 919.98px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .mobileNav {
+    display: block;
+  }
+}

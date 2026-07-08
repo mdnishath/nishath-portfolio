@@ -1,0 +1,110 @@
+.footer {
+  border-top: 1px solid rgba(201, 162, 78, 0.18);
+  padding: 56px var(--pad-x) 0;
+  background: var(--bg);
+  font-family: var(--font-sans), sans-serif;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 48px;
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brandMark {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--gold-lt);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brandName {
+  font-family: var(--font-serif), serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 5px;
+  color: var(--ink);
+}
+
+.brandRole {
+  font-size: 8.5px;
+  letter-spacing: 3px;
+  color: var(--gold-lt);
+  font-weight: 600;
+}
+
+.tagline {
+  font-size: 14px;
+  color: var(--dim);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+}
+
+.link {
+  font-size: 13px;
+  color: var(--nav-link);
+  letter-spacing: 0.5px;
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.socials {
+  display: flex;
+  gap: 14px;
+}
+
+.social {
+  color: var(--nav-link);
+  display: flex;
+}
+
+.social:hover {
+  color: var(--gold-lt);
+}
+
+.bottom {
+  border-top: 1px solid rgba(201, 162, 78, 0.15);
+  padding: 22px 0;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 12.5px;
+  color: var(--dim);
+  letter-spacing: 0.5px;
+}
