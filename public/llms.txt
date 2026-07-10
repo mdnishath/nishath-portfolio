@@ -1,0 +1,35 @@
+# Md Nishath Khandakar
+
+> Full-Stack Developer & AI Builder. Full-stack websites, desktop & mobile apps, automation and SEO — delivered fast. 7+ years of experience, government-verified freelancer (Dept. of ICT, Bangladesh), building AI-powered with Claude Code. One developer, full team output.
+
+Website: https://mdnishath.com
+Contact: nishath.khandakar@gmail.com · WhatsApp +880 1797-691159
+GitHub: https://github.com/mdnishath
+
+## Services
+
+- Web Development: MERN, Next.js & WordPress — any stack, pixel-perfect
+- Desktop Apps: cross-platform desktop software with Electron
+- Mobile Apps: native-feel Android & iOS applications
+- UI/UX & Figma: clean, modern interfaces designed pixel-perfect
+- SEO: on-page, technical SEO & indexing that ranks
+- Automation: custom scripts & workflow automation
+- Telegram Bots: smart Telegram bot development
+- Google Business (GMB): setup, reviews & reputation management
+- AI-Powered Development: shipping faster with Claude Code as co-builder
+
+## Pages
+
+- [Home](https://mdnishath.com/): who I am, services overview, journey, testimonials
+- [Services](https://mdnishath.com/services): all nine disciplines and the four-step AI-native process
+- [Work](https://mdnishath.com/work): selected projects — SaaS platforms, WordPress plugins, automation bots
+- [Contact](https://mdnishath.com/contact): WhatsApp, email and contact form — replies within a day
+
+## Facts
+
+- Name: Md Nishath Khandakar
+- Role: Full-Stack Developer & AI Builder (freelance)
+- Experience: 7+ years (freelancing since 2019)
+- Location: Bangladesh · serves clients worldwide
+- Credential: Verified Freelancer, Govt. of Bangladesh (Dept. of ICT), ID F126326715879
+- Workflow: AI-native development with Claude Code — agency quality, freelancer speed

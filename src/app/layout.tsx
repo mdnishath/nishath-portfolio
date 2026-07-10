@@ -1,7 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import JsonLd from "@/components/JsonLd";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import SmoothScroll from "@/components/SmoothScroll";
+import { site } from "@/lib/data";
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_TITLE, SITE_URL, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -17,15 +21,56 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Md Nishath Khandakar — Full-Stack Developer & AI Builder",
-  description:
-    "Full-stack websites, desktop & mobile apps, automation and SEO — delivered fast. AI-powered development with Claude Code, production-grade products across any stack, solo.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${site.name}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: site.name, url: SITE_URL }],
+  creator: site.name,
+  publisher: site.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: site.name,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0908",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${cormorant.variable} ${manrope.variable}`}>
+        <JsonLd data={siteJsonLd()} />
+        <SmoothScroll />
         <div className="pageWrap">
           <div className="grain" aria-hidden />
           <SiteNav />

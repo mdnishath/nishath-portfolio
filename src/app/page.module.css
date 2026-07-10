@@ -434,7 +434,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -35vw; /* centers without transform — GSAP owns this element's transform */
   width: 70vw;
   height: 340px;
   background: radial-gradient(ellipse at bottom, rgba(201, 162, 78, 0.08) 0%, transparent 65%);

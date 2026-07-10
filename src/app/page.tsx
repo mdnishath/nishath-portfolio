@@ -2,10 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Eyebrow from "@/components/Eyebrow";
 import GoldText from "@/components/GoldText";
+import HeroIntro from "@/components/HeroIntro";
+import Parallax from "@/components/Parallax";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import Sparkle from "@/components/Sparkle";
+import SplitHeading from "@/components/SplitHeading";
 import TestimonialCard from "@/components/TestimonialCard";
 import { journey, services, site, testimonials } from "@/lib/data";
 import styles from "./page.module.css";
@@ -17,23 +20,25 @@ export default function HomePage() {
     <main>
       {/* ============ HERO ============ */}
       <section className={styles.hero}>
-        <div className={`container ${styles.heroInner}`}>
-          <Reveal className={styles.heroCopy}>
-            <Eyebrow large marginBottom={32}>
-              Premium · Full-Stack · AI-Powered
-            </Eyebrow>
-            <h1 className={`serif ${styles.heroTitle}`}>
+        <HeroIntro className={`container ${styles.heroInner}`}>
+          <div className={styles.heroCopy}>
+            <div data-hero="0.1">
+              <Eyebrow large marginBottom={32}>
+                Premium · Full-Stack · AI-Powered
+              </Eyebrow>
+            </div>
+            <SplitHeading as="h1" className={`serif ${styles.heroTitle}`} onScroll={false} delay={0.25}>
               Full-Stack
               <br />
               <GoldText>Developer</GoldText>
               <br />
               &amp; AI Builder.
-            </h1>
-            <p className={styles.heroLede}>
+            </SplitHeading>
+            <p className={styles.heroLede} data-hero="0.7">
               Full-stack websites, desktop &amp; mobile apps, automation and SEO — delivered fast.
               I use AI (Claude Code) to build production-grade products across any stack, solo.
             </p>
-            <div className={styles.heroActions}>
+            <div className={styles.heroActions} data-hero="0.85">
               <Link href="/work" className="btnGold">
                 View My Work
               </Link>
@@ -41,10 +46,10 @@ export default function HomePage() {
                 Hire Me
               </Link>
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal className={styles.portraitCol}>
-            <div className={styles.portraitWrap}>
+          <div className={styles.portraitCol} data-hero-portrait="0.35">
+            <Parallax className={styles.portraitWrap} offset={70}>
               <div className={styles.portraitHalo} />
               <Sparkle
                 size={28}
@@ -77,9 +82,9 @@ export default function HomePage() {
                   className={styles.portraitImg}
                 />
               </div>
-            </div>
-          </Reveal>
-        </div>
+            </Parallax>
+          </div>
+        </HeroIntro>
       </section>
 
       {/* ============ STATS STRIP ============ */}
@@ -96,16 +101,18 @@ export default function HomePage() {
 
       {/* ============ ABOUT ============ */}
       <section className={styles.about}>
-        <Reveal className={`container ${styles.aboutInner}`}>
+        <div className={`container ${styles.aboutInner}`}>
           <div className={styles.aboutHead}>
-            <Eyebrow>About Me</Eyebrow>
-            <h2 className={`serif ${styles.aboutTitle}`}>
+            <Reveal variant="fade">
+              <Eyebrow>About Me</Eyebrow>
+            </Reveal>
+            <SplitHeading as="h2" className={`serif ${styles.aboutTitle}`}>
               One developer.
               <br />
               <GoldText>Full team output.</GoldText>
-            </h2>
+            </SplitHeading>
           </div>
-          <div className={styles.aboutBody}>
+          <Reveal className={styles.aboutBody} stagger>
             <p className={styles.aboutPara}>
               For over seven years I&apos;ve shipped across the whole spectrum — websites, desktop
               and mobile apps, automation and SEO. I own projects end to end: strategy, design,
@@ -116,13 +123,13 @@ export default function HomePage() {
               delivery, no stack limits, and one reliable point of contact — agency-quality output
               without the agency overhead.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
       {/* ============ VERIFIED FREELANCER ============ */}
       <section className={styles.verified}>
-        <Reveal className="container">
+        <Reveal className="container" variant="scale">
           <Eyebrow centered marginBottom={36}>
             Verified Credentials
           </Eyebrow>
@@ -186,12 +193,10 @@ export default function HomePage() {
       {/* ============ SERVICES ============ */}
       <section className={styles.band}>
         <div className="container">
-          <Reveal>
-            <SectionHeading eyebrow="Services" ornament>
-              Everything you need, <GoldText>one builder.</GoldText>
-            </SectionHeading>
-          </Reveal>
-          <Reveal className="gridCards">
+          <SectionHeading eyebrow="Services" ornament>
+            Everything you need, <GoldText>one builder.</GoldText>
+          </SectionHeading>
+          <Reveal className="gridCards" stagger>
             {services.map((svc) => (
               <ServiceCard key={svc.title} service={svc} />
             ))}
@@ -207,17 +212,21 @@ export default function HomePage() {
       {/* ============ JOURNEY ============ */}
       <section className={styles.journey}>
         <div className={`container ${styles.journeyInner}`}>
-          <Reveal className={styles.journeyHead}>
-            <Eyebrow>The Journey</Eyebrow>
-            <h2 className={`serif ${styles.journeyTitle}`}>
+          <div className={styles.journeyHead}>
+            <Reveal variant="fade">
+              <Eyebrow>The Journey</Eyebrow>
+            </Reveal>
+            <SplitHeading as="h2" className={`serif ${styles.journeyTitle}`}>
               Seven years of <GoldText>shipping.</GoldText>
-            </h2>
-            <p className={styles.journeyLede}>
-              From first client website to AI-native builder — every year added a new capability to
-              the stack.
-            </p>
-          </Reveal>
-          <Reveal className={styles.journeyList}>
+            </SplitHeading>
+            <Reveal delay={0.2}>
+              <p className={styles.journeyLede}>
+                From first client website to AI-native builder — every year added a new capability
+                to the stack.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal className={styles.journeyList} stagger>
             {journey.map((jn) => (
               <div key={jn.year} className={styles.journeyItem}>
                 <div className={styles.journeyRail}>
@@ -237,12 +246,10 @@ export default function HomePage() {
       {/* ============ TESTIMONIALS ============ */}
       <section className={styles.band}>
         <div className="container">
-          <Reveal>
-            <SectionHeading eyebrow="Client Words" ornament>
-              Trusted by clients <GoldText>worldwide.</GoldText>
-            </SectionHeading>
-          </Reveal>
-          <Reveal className="gridCards">
+          <SectionHeading eyebrow="Client Words" ornament>
+            Trusted by clients <GoldText>worldwide.</GoldText>
+          </SectionHeading>
+          <Reveal className="gridCards" stagger>
             {testimonials.map((tm, i) => (
               <TestimonialCard key={i} testimonial={tm} />
             ))}
@@ -252,23 +259,25 @@ export default function HomePage() {
 
       {/* ============ CTA ============ */}
       <section className={styles.cta}>
-        <div className={styles.ctaGlow} />
-        <Reveal className={styles.ctaInner}>
-          <h2 className={`serif ${styles.ctaTitle}`}>
+        <Parallax className={styles.ctaGlow} offset={90} />
+        <div className={styles.ctaInner}>
+          <SplitHeading as="h2" className={`serif ${styles.ctaTitle}`}>
             Let&apos;s build something <GoldText>premium.</GoldText>
-          </h2>
-          <p className={styles.ctaLede}>
-            One message away. WhatsApp, email or socials — I reply within a day.
-          </p>
-          <div className={styles.ctaActions}>
+          </SplitHeading>
+          <Reveal delay={0.2}>
+            <p className={styles.ctaLede}>
+              One message away. WhatsApp, email or socials — I reply within a day.
+            </p>
+          </Reveal>
+          <Reveal className={styles.ctaActions} delay={0.35}>
             <Link href="/contact" className="btnGold wide">
               Contact Me
             </Link>
             <Link href="/work" className="btnDark wide">
               See My Work
             </Link>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
     </main>
   );

@@ -5,43 +5,66 @@ import GoldText from "@/components/GoldText";
 import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import Sparkle from "@/components/Sparkle";
+import SplitHeading from "@/components/SplitHeading";
+import JsonLd from "@/components/JsonLd";
 import { projects, site } from "@/lib/data";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../subpage.module.css";
 
+const description =
+  "Selected work — SaaS platforms, WordPress plugins and automation bots, built to perform.";
+
 export const metadata: Metadata = {
-  title: "Work — Md Nishath Khandakar",
-  description:
-    "Selected work — SaaS platforms, WordPress plugins and automation bots, built to perform.",
+  title: "Work — SaaS Platforms, Plugins & Automation Bots",
+  description,
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Work — SaaS Platforms, Plugins & Automation Bots",
+    description,
+    url: "/work",
+  },
 };
 
 export default function WorkPage() {
   return (
     <main>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Work", path: "/work" }])} />
       {/* ============ PAGE HEADER ============ */}
       <section className={styles.pageHeader}>
         <div className={styles.headerGlow} />
-        <Reveal className={`container ${styles.workHeaderRow}`}>
+        <div className={`container ${styles.workHeaderRow}`}>
           <div>
-            <Eyebrow large marginBottom={28}>
-              Selected Work
-            </Eyebrow>
-            <h1 className={`serif ${styles.pageTitle} ${styles.workTitleWrap}`}>
-              Built to <GoldText>perform.</GoldText>
+            <Reveal variant="fade" delay={0.1}>
+              <Eyebrow large marginBottom={28}>
+                Selected Work
+              </Eyebrow>
+            </Reveal>
+            <div className={styles.workTitleWrap}>
+              <SplitHeading
+                as="h1"
+                className={`serif ${styles.pageTitle}`}
+                onScroll={false}
+                delay={0.25}
+              >
+                Built to <GoldText>perform.</GoldText>
+              </SplitHeading>
               <Sparkle
                 size={24}
                 style={{ position: "absolute", top: -14, right: -30 }}
               />
-            </h1>
+            </div>
           </div>
-          <a href={site.github} target="_blank" rel="noreferrer" className={styles.githubLink}>
-            More on GitHub →
-          </a>
-        </Reveal>
+          <Reveal delay={0.55}>
+            <a href={site.github} target="_blank" rel="noreferrer" className={styles.githubLink}>
+              More on GitHub →
+            </a>
+          </Reveal>
+        </div>
       </section>
 
       {/* ============ WORK GRID ============ */}
       <section className={styles.gridSection}>
-        <Reveal className={`container ${styles.workGrid}`}>
+        <Reveal className={`container ${styles.workGrid}`} stagger>
           {projects.map((proj) => (
             <ProjectCard key={proj.slotId} project={proj} />
           ))}
@@ -50,14 +73,16 @@ export default function WorkPage() {
 
       {/* ============ CTA ============ */}
       <section className={styles.ctaBand}>
-        <Reveal className={styles.ctaInner}>
-          <h2 className={`serif ${styles.ctaTitle}`}>
+        <div className={styles.ctaInner}>
+          <SplitHeading as="h2" className={`serif ${styles.ctaTitle}`}>
             Your project could be <GoldText>next.</GoldText>
-          </h2>
-          <Link href="/contact" className="btnGold wide">
-            Start a Project
-          </Link>
-        </Reveal>
+          </SplitHeading>
+          <Reveal delay={0.25}>
+            <Link href="/contact" className="btnGold wide">
+              Start a Project
+            </Link>
+          </Reveal>
+        </div>
       </section>
     </main>
   );

@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Eyebrow from "./Eyebrow";
 import OrnamentDivider from "./OrnamentDivider";
+import Reveal from "./Reveal";
+import SplitHeading from "./SplitHeading";
 
 interface SectionHeadingProps {
   eyebrow: string;
@@ -13,8 +15,11 @@ interface SectionHeadingProps {
 export default function SectionHeading({ eyebrow, children, ornament }: SectionHeadingProps) {
   return (
     <div style={{ textAlign: "center", marginBottom: "clamp(48px,6vw,72px)" }}>
-      <Eyebrow centered>{eyebrow}</Eyebrow>
-      <h2
+      <Reveal variant="fade">
+        <Eyebrow centered>{eyebrow}</Eyebrow>
+      </Reveal>
+      <SplitHeading
+        as="h2"
         className="serif"
         style={{
           fontSize: "clamp(32px,4vw,50px)",
@@ -24,8 +29,12 @@ export default function SectionHeading({ eyebrow, children, ornament }: SectionH
         }}
       >
         {children}
-      </h2>
-      {ornament && <OrnamentDivider />}
+      </SplitHeading>
+      {ornament && (
+        <Reveal variant="fade" delay={0.25}>
+          <OrnamentDivider />
+        </Reveal>
+      )}
     </div>
   );
 }
