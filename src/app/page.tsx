@@ -77,6 +77,7 @@ export default function HomePage() {
                 <Image
                   src={site.photo}
                   alt={site.name}
+                  title={`${site.name} — Full-Stack Developer`}
                   width={1000}
                   height={1000}
                   priority
@@ -189,6 +190,7 @@ export default function HomePage() {
                 <Image
                   src={site.photo}
                   alt={site.name}
+                  title={`${site.name} — Verified Freelancer`}
                   width={180}
                   height={180}
                   sizes="96px"
