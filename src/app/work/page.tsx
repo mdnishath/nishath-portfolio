@@ -7,7 +7,8 @@ import Reveal from "@/components/Reveal";
 import Sparkle from "@/components/Sparkle";
 import SplitHeading from "@/components/SplitHeading";
 import JsonLd from "@/components/JsonLd";
-import { projects, site } from "@/lib/data";
+import SectionHeading from "@/components/SectionHeading";
+import { caseStudy, projects, site } from "@/lib/data";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../subpage.module.css";
 
@@ -69,6 +70,32 @@ export default function WorkPage() {
             <ProjectCard key={proj.slotId} project={proj} />
           ))}
         </Reveal>
+      </section>
+
+      {/* ============ CASE STUDY ============ */}
+      <section className={styles.band}>
+        <div className="container">
+          <SectionHeading eyebrow="Case Study" ornament>
+            {caseStudy.project}: <GoldText>zero to lead machine.</GoldText>
+          </SectionHeading>
+          <Reveal variant="fade">
+            <p className={styles.caseIntro}>{caseStudy.intro}</p>
+          </Reveal>
+          <Reveal className={styles.caseGrid} stagger>
+            {caseStudy.blocks.map((block) => (
+              <div key={block.label} className={styles.caseBlock}>
+                <span className={styles.caseLabel}>{block.label}</span>
+                <h3 className={`serif ${styles.caseTitle}`}>{block.title}</h3>
+                <p className={styles.caseDesc}>{block.desc}</p>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal className={styles.caseLinkRow}>
+            <a href={caseStudy.url} target="_blank" rel="noreferrer" className="linkUnderline">
+              See the live site →
+            </a>
+          </Reveal>
+        </div>
       </section>
 
       {/* ============ CTA ============ */}

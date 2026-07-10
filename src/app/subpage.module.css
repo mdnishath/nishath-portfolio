@@ -187,6 +187,61 @@
   margin: 0;
 }
 
+/* ===== case study (work page) ===== */
+
+.caseIntro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 640px;
+  margin: -24px auto 48px;
+  text-align: center;
+}
+
+.caseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 24px;
+}
+
+.caseBlock {
+  border: 1px solid rgba(201, 162, 78, 0.16);
+  border-radius: 12px;
+  padding: 30px 28px;
+  background: rgba(10, 9, 8, 0.4);
+}
+
+.caseLabel {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  border: 1px solid rgba(201, 162, 78, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 18px;
+}
+
+.caseTitle {
+  font-size: 24px;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.caseDesc {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+.caseLinkRow {
+  text-align: center;
+  margin-top: 44px;
+}
+
 /* ===== work page header row ===== */
 
 .workHeaderRow {

@@ -171,6 +171,7 @@ export const projects: Project[] = [
     image: "/uploads/project-autocomplete-address.webp",
     href: "https://wordpress.org/plugins/autocomplete-google-address/",
     github: "https://github.com/mdnishath/autocomplete-google-address",
+    featured: true,
     tags: ["WordPress", "PHP", "Google Maps API"],
   },
   {
@@ -180,6 +181,7 @@ export const projects: Project[] = [
     image: "/uploads/project-wp-ultra-mcp.webp",
     href: "https://github.com/mdnishath/wp-ultra-mcp",
     github: "https://github.com/mdnishath/wp-ultra-mcp",
+    featured: true,
     tags: ["WordPress", "MCP", "AI Tooling"],
   },
   {
@@ -262,6 +264,36 @@ export const site = {
   freelancerId: "F126326715879",
   idCardPdf: "/uploads/id-card.pdf",
   photo: "/uploads/nishath-photo.webp",
+};
+
+export interface CaseStudyBlock {
+  label: string;
+  title: string;
+  desc: string;
+}
+
+export const caseStudy = {
+  project: "COUVERTURE J.J.M",
+  url: "https://www.couverturejjm.com/",
+  intro:
+    "How one developer took a French roofing company from zero web presence to a lead-generating website — end to end.",
+  blocks: [
+    {
+      label: "Problem",
+      title: "No digital presence at all",
+      desc: "COUVERTURE J.J.M, a roofing & carpentry company in Fréjus (Var, France), relied entirely on word of mouth. Local homeowners searching online couldn't find them, and there was no way to request a quote outside business hours.",
+    },
+    {
+      label: "Solution",
+      title: "SEO-first site, built end to end",
+      desc: "One point of contact for everything: brand-matched design, Next.js build with technical SEO baked in (structured data, sitemap, French-language metadata), an instant quote form, and click-to-call WhatsApp & phone CTAs — developed AI-native with Claude Code for agency speed.",
+    },
+    {
+      label: "Result",
+      title: "Open for leads, 24/7",
+      desc: "A fast, conversion-focused website live at couverturejjm.com that captures quote requests around the clock, presents verified credentials and services clearly, and gives the business a professional face for local search — delivered by a single developer, design to deployment.",
+    },
+  ] satisfies CaseStudyBlock[],
 };
 
 export const navLinks = [
