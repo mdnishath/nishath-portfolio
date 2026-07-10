@@ -33,10 +33,11 @@ export default function HeroIntro({ children, className }: HeroIntroProps) {
             clearProps: "all",
           });
         });
+        // scale only, no fade: the portrait is the LCP element and hiding it
+        // until JS runs pushes mobile LCP past 4s
         el.querySelectorAll<HTMLElement>("[data-hero-portrait]").forEach((item) => {
           gsap.from(item, {
-            scale: 0.92,
-            autoAlpha: 0,
+            scale: 0.94,
             duration: 1.5,
             ease: EASE,
             delay: parseFloat(item.dataset.heroPortrait || "0"),
