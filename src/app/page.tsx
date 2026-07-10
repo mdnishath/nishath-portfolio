@@ -77,9 +77,10 @@ export default function HomePage() {
                 <Image
                   src={site.photo}
                   alt={site.name}
-                  width={860}
-                  height={860}
+                  width={1000}
+                  height={1000}
                   priority
+                  sizes="(max-width: 900px) 78vw, 460px"
                   className={styles.portraitImg}
                 />
               </div>
@@ -190,6 +191,7 @@ export default function HomePage() {
                   alt={site.name}
                   width={180}
                   height={180}
+                  sizes="96px"
                   className={styles.verifiedAvatarImg}
                 />
               </span>

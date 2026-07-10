@@ -17,8 +17,9 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Image
             src={project.image}
             alt={`${project.title} — website screenshot`}
-            width={1600}
-            height={1000}
+            width={1280}
+            height={800}
+            sizes="(max-width: 768px) 92vw, (max-width: 1100px) 46vw, 400px"
             className={styles.mediaImg}
           />
         </a>
