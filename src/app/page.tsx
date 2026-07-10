@@ -4,13 +4,14 @@ import Eyebrow from "@/components/Eyebrow";
 import GoldText from "@/components/GoldText";
 import HeroIntro from "@/components/HeroIntro";
 import Parallax from "@/components/Parallax";
+import ProjectCard from "@/components/ProjectCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
 import Sparkle from "@/components/Sparkle";
 import SplitHeading from "@/components/SplitHeading";
 import TestimonialCard from "@/components/TestimonialCard";
-import { journey, services, site, testimonials } from "@/lib/data";
+import { journey, projects, services, site, testimonials } from "@/lib/data";
 import styles from "./page.module.css";
 
 const stats = ["7+ Years Experience", "Any Stack", "AI-Powered Delivery", "End-to-End Ownership"];
@@ -123,6 +124,27 @@ export default function HomePage() {
               delivery, no stack limits, and one reliable point of contact — agency-quality output
               without the agency overhead.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ SELECTED WORK ============ */}
+      <section className={styles.band}>
+        <div className="container">
+          <SectionHeading eyebrow="Selected Work" ornament>
+            Built to <GoldText>perform.</GoldText>
+          </SectionHeading>
+          <Reveal className={styles.workFeatured} stagger>
+            {projects
+              .filter((proj) => proj.featured)
+              .map((proj) => (
+                <ProjectCard key={proj.slotId} project={proj} />
+              ))}
+          </Reveal>
+          <Reveal className={styles.sectionLinkRow}>
+            <Link href="/work" className="linkUnderline">
+              All projects →
+            </Link>
           </Reveal>
         </div>
       </section>

@@ -19,7 +19,12 @@ export interface Testimonial {
 export interface Project {
   slotId: string;
   title: string;
-  placeholder: string;
+  placeholder?: string;
+  desc?: string;
+  image?: string;
+  href?: string;
+  github?: string;
+  featured?: boolean;
   tags: string[];
 }
 
@@ -149,6 +154,16 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    slotId: "work-couverturejjm",
+    title: "COUVERTURE J.J.M",
+    desc: "Lead-generation website for a French roofing & carpentry company in Fréjus — SEO-first build with instant quote form, delivered end to end.",
+    image: "/uploads/project-couverturejjm.png",
+    href: "https://www.couverturejjm.com/",
+    github: "https://github.com/mdnishath/COUVERTURE-J.J.M",
+    featured: true,
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
   {
     slotId: "work-saas",
     title: "SaaS Platform",

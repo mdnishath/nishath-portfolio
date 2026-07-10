@@ -16,6 +16,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.mediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .mediaImg {
+  transform: scale(1.03);
 }
 
 .placeholder {
@@ -57,15 +71,40 @@
   padding: 5px 12px;
 }
 
+.desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 4px;
+}
+
 .view {
   font-size: 14px;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 1px;
-  margin-top: 4px;
   transition: all 0.25s;
 }
 
 .view:hover {
   color: var(--gold-br);
+}
+
+.source {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 1px;
+  transition: all 0.25s;
+}
+
+.source:hover {
+  color: var(--gold-lt);
 }
