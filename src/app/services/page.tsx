@@ -7,8 +7,9 @@ import Reveal from "@/components/Reveal";
 import ServiceCard from "@/components/ServiceCard";
 import SplitHeading from "@/components/SplitHeading";
 import JsonLd from "@/components/JsonLd";
-import { processSteps, services } from "@/lib/data";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import SectionHeading from "@/components/SectionHeading";
+import { faqs, processSteps, services } from "@/lib/data";
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import styles from "../subpage.module.css";
 
 const description =
@@ -29,6 +30,7 @@ export default function ServicesPage() {
   return (
     <main>
       <JsonLd data={breadcrumbJsonLd([{ name: "Services", path: "/services" }])} />
+      <JsonLd data={faqJsonLd(faqs)} />
       {/* ============ PAGE HEADER ============ */}
       <section className={styles.pageHeader}>
         <div className={styles.headerGlow} />
@@ -91,6 +93,23 @@ export default function ServicesPage() {
                   <h3 className={`serif ${styles.processStepTitle}`}>{step.title}</h3>
                   <p className={styles.processStepDesc}>{step.desc}</p>
                 </div>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ FAQ ============ */}
+      <section className={styles.faqSection}>
+        <div className="container">
+          <SectionHeading eyebrow="FAQ" ornament>
+            Questions, <GoldText>answered.</GoldText>
+          </SectionHeading>
+          <Reveal className={styles.faqList} stagger>
+            {faqs.map((faq) => (
+              <div key={faq.q} className={styles.faqItem}>
+                <h3 className={`serif ${styles.faqQ}`}>{faq.q}</h3>
+                <p className={styles.faqA}>{faq.a}</p>
               </div>
             ))}
           </Reveal>

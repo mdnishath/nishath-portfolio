@@ -95,6 +95,19 @@ export function siteJsonLd() {
   };
 }
 
+/** FAQPage JSON-LD — must mirror the visible FAQ content. */
+export function faqJsonLd(faqs: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
 /** BreadcrumbList JSON-LD for subpages. */
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
   return {

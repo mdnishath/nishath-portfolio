@@ -192,6 +192,38 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
+export interface Faq {
+  q: string;
+  a: string;
+}
+
+export const faqs: Faq[] = [
+  {
+    q: "What services do you offer?",
+    a: "Nine disciplines under one roof: web development (MERN, Next.js, WordPress), cross-platform desktop apps with Electron, Android & iOS mobile apps, UI/UX design in Figma, technical SEO, workflow automation, Telegram bots, Google Business Profile management, and AI-powered development with Claude Code.",
+  },
+  {
+    q: "Can you handle a complete project end to end?",
+    a: "Yes — that's the core of how I work. Strategy, design, build, launch and post-launch support are all owned by one person. You get agency-quality output with a single point of contact, no hand-offs and no overhead.",
+  },
+  {
+    q: "How fast can you deliver?",
+    a: "Much faster than a traditional agency. I build AI-native with Claude Code as a force multiplier, which means production-grade code on any stack at speed — a brief in the morning can be a working build by evening for smaller scopes.",
+  },
+  {
+    q: "What is AI-powered development?",
+    a: "I use Claude Code, Anthropic's AI coding agent, as my co-builder throughout the project. It multiplies my output while I stay responsible for architecture, quality and every line that ships — you get the speed of a team from a single developer.",
+  },
+  {
+    q: "Do you work with international clients?",
+    a: "Yes, I work with clients worldwide. I'm a government-verified freelancer in Bangladesh (Dept. of ICT, ID F126326715879) and communicate over WhatsApp, email or any channel you prefer — with replies within a day.",
+  },
+  {
+    q: "Which tech stacks do you work with?",
+    a: "Any stack the project needs: React, Next.js, Node.js, TypeScript, PostgreSQL, WordPress & PHP, Electron, Python, and native-feel mobile frameworks. Seven-plus years across the full spectrum means the stack is chosen for the product, not the other way around.",
+  },
+];
+
 export const site = {
   name: "Md Nishath Khandakar",
   brand: "NISHATH",
