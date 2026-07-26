@@ -5,6 +5,7 @@ import JsonLd from "@/components/JsonLd";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import SmoothScroll from "@/components/SmoothScroll";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { site } from "@/lib/data";
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_TITLE, SITE_URL, siteJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -93,6 +94,7 @@ gtag('config', '${GA_ID}');`}
           <SiteNav />
           {children}
           <SiteFooter />
+          <WhatsAppFloat />
         </div>
       </body>
     </html>
