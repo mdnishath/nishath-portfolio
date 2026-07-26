@@ -15,6 +15,9 @@ const projectTypes = [
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+// FormSubmit endpoint id (maps to my email without exposing it in the markup)
+const FORM_ID = "8fa529fa20ad80aba418cc4467420e71";
+
 /** Contact form — delivers straight to my inbox via FormSubmit's AJAX API. */
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -32,7 +35,7 @@ export default function ContactForm() {
 
     setStatus("sending");
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
+      const res = await fetch(`https://formsubmit.co/ajax/${FORM_ID}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
