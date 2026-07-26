@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { site } from "@/lib/data";
 import styles from "@/app/contact/contact.module.css";
 
@@ -13,27 +13,80 @@ const projectTypes = [
   "Something else",
 ];
 
-/** Contact form — opens a pre-written email via mailto on submit. */
+type Status = "idle" | "sending" | "sent" | "error";
+
+/** Contact form — delivers straight to my inbox via FormSubmit's AJAX API. */
 export default function ContactForm() {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<Status>("idle");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const subject = encodeURIComponent("Project inquiry: " + (fd.get("type") || ""));
-    const body = encodeURIComponent(
-      "Name: " + fd.get("name") + "\n" +
-        "Email: " + fd.get("email") + "\n" +
-        "Project type: " + fd.get("type") + "\n\n" +
-        fd.get("message")
-    );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // honeypot filled in => bot; pretend success
+    if (fd.get("_honey")) {
+      setStatus("sent");
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: fd.get("name"),
+          email: fd.get("email"),
+          "project type": fd.get("type"),
+          message: fd.get("message"),
+          _subject: `Project inquiry: ${fd.get("type")} — ${fd.get("name")}`,
+          _template: "table",
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && String(data.success) === "true") {
+        setStatus("sent");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
+
+  if (status === "sent") {
+    return (
+      <div className={`${styles.form} ${styles.formSuccess}`}>
+        <span className={styles.formTitle}>Message sent ✓</span>
+        <p className={styles.formSub}>
+          Thanks — it&apos;s in my inbox. I&apos;ll reply within a day. Need me sooner? Ping me on
+          WhatsApp.
+        </p>
+        <a href={site.whatsapp[0].href} target="_blank" rel="noreferrer" className="btnGold">
+          Chat on WhatsApp
+        </a>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.formHead}>
         <span className={styles.formTitle}>Start a project</span>
-        <span className={styles.formSub}>Fill this in — it opens as an email to me, pre-written.</span>
+        <span className={styles.formSub}>Fill this in — it lands straight in my inbox.</span>
       </div>
+
+      {/* honeypot — invisible to humans, bots fill it */}
+      <input
+        type="text"
+        name="_honey"
+        tabIndex={-1}
+        autoComplete="off"
+        style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+        aria-hidden
+      />
 
       <div className={styles.row}>
         <label className={styles.field}>
@@ -72,9 +125,14 @@ export default function ContactForm() {
         />
       </label>
 
-      <button type="submit" className={`btnGold ${styles.submit}`}>
-        Send Message →
+      <button type="submit" disabled={status === "sending"} className={`btnGold ${styles.submit}`}>
+        {status === "sending" ? "Sending…" : "Send Message →"}
       </button>
+      {status === "error" && (
+        <span className={styles.formError}>
+          Couldn&apos;t send right now — please try again, or email me at {site.email}.
+        </span>
+      )}
       <span className={styles.formNote}>Or message me directly on WhatsApp — usually faster.</span>
     </form>
   );

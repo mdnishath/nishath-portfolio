@@ -211,3 +211,22 @@
   color: var(--dimmer);
   text-align: center;
 }
+
+.formSuccess {
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: 18px;
+  min-height: 380px;
+}
+
+.formSuccess p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.formError {
+  font-size: 13.5px;
+  color: #e0876d;
+  text-align: center;
+}
