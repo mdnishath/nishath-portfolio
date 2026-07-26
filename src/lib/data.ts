@@ -256,8 +256,8 @@ export const site = {
   tagline: "FULL-STACK DEVELOPER",
   email: "nishath.khandakar@gmail.com",
   whatsapp: [
-    { label: "+880 1797-691159", href: "https://wa.me/8801797691159" },
     { label: "+880 1767-591988", href: "https://wa.me/8801767591988" },
+    { label: "+880 1797-691159", href: "https://wa.me/8801797691159" },
   ],
   github: "https://github.com/mdnishath",
   facebook: "https://www.facebook.com/nishath.khandakar",
