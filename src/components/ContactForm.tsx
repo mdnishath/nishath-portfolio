@@ -16,7 +16,7 @@ const projectTypes = [
 type Status = "idle" | "sending" | "sent" | "error";
 
 // FormSubmit endpoint id (maps to my email without exposing it in the markup)
-const FORM_ID = "8fa529fa20ad80aba418cc4467420e71";
+const FORM_ID = "71d0e2840168316a466e3ed02aefe4fe";
 
 /** Contact form — delivers straight to my inbox via FormSubmit's AJAX API. */
 export default function ContactForm() {
